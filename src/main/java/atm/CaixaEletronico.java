@@ -10,6 +10,9 @@ public class CaixaEletronico {
         if(isValidUser(user))
             return "Usuário autenticado";
         return "Não foi possivel autenticar o Usuário";
+    }
 
+    public static String balance(Double amount){
+            return "O saldo é R$" + amount;
     }
 }

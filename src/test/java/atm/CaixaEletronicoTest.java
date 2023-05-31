@@ -38,4 +38,12 @@ public class CaixaEletronicoTest {
         String response = CaixaEletronico.login(user);
         Assertions.assertEquals("Não foi possivel autenticar o Usuário", response);
     }
+
+    @Test
+    public void success_balance(){
+        String response = CaixaEletronico.balance(user.getAmount());
+        Assertions.assertEquals("O saldo é R$50.0", response);
+    }
+
+
 }

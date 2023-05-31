@@ -8,6 +8,7 @@ public class UserFixturies {
         User user  = new User();
         user.setUser("João Viktor");
         user.setSenha("123");
+        user.setAmount(50.00);
         return user;
     }
 }
