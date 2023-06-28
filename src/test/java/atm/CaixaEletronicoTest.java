@@ -2,6 +2,7 @@ package atm;
 
 import entities.User;
 import fixturies.UserFixturies;
+import io.restassured.internal.common.assertion.Assertion;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,6 +44,21 @@ public class CaixaEletronicoTest {
     public void success_balance(){
         String response = CaixaEletronico.balance(user.getAmount());
         Assertions.assertEquals("O saldo é R$50.0", response);
+    }
+
+    @Test
+    public void success_withdraw(){
+        Double value = 500.00;
+        user.setAmount(1000.00);
+        String response = CaixaEletronico.withdraw(value, user);
+        Assertions.assertEquals("Retire seu dinheiro", response);
+    }
+
+    @Test
+    public void fail_withdraw(){
+        Double value = 500.00;
+        String response = CaixaEletronico.withdraw(value, user);
+        Assertions.assertEquals("Saldo insuficiente", response);
     }
 
 

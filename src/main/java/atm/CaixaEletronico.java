@@ -15,4 +15,8 @@ public class CaixaEletronico {
     public static String balance(Double amount){
             return "O saldo é R$" + amount;
     }
+
+    public static String withdraw(Double value, User user){
+        return user.getAmount() < value ? "Saldo insuficiente" : "Retire seu dinheiro";
+    }
 }
