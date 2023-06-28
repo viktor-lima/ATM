@@ -55,11 +55,10 @@ public class CaixaEletronicoTest {
     }
 
     @Test
-    public void fail_withdraw(){
-        Double value = 500.00;
+    public void fail_withdrawZero(){
+        Double value = 0.00;
         String response = CaixaEletronico.withdraw(value, user);
         Assertions.assertEquals("Saldo insuficiente", response);
     }
-
 
 }
