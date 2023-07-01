@@ -61,4 +61,18 @@ public class CaixaEletronicoTest {
         Assertions.assertEquals("Saldo insuficiente", response);
     }
 
+    @Test
+    public void success_deposit(){
+        Double value = 200.00;
+        String response = CaixaEletronico.deposit(value, user);
+        Assertions.assertEquals("Deposito de: " + value + " efetuado com sucesso. Valor em conta: " + user.getAmount(), response);
+    }
+    @Test
+    public void fail_deposit(){
+        Double value = 0.00;
+        String response = CaixaEletronico.deposit(value, user);
+        Assertions.assertEquals("Não tem como depositar nada ( zero )", response);
+    }
+
+
 }
